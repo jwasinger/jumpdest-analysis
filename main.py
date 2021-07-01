@@ -83,4 +83,8 @@ mean, stdev = jumpdest_delta_distribution(dense_jumptable)
 
 print("jumptable size (bytes)", dense_jumptable_size(dense_jumptable))
 print("distribution of distances between jumpdests.  mean: ", mean, ". stdev ", stdev)
+print("min value: ", min(dense_jumptable[1:]))
+print("max value: ", max(dense_jumptable[1:]))
+print("num deltas between 128 and 256 (non-inclusive)", len([val for val in dense_jumptable[1:] if val > 128 and val < 256]))
+print("num deltas gte 256", len([val for val in dense_jumptable[1:] if val > 256]))
 import pdb; pdb.set_trace()
